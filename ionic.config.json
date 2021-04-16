@@ -1,0 +1,7 @@
+{
+  "name": "TcMontevarchi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
