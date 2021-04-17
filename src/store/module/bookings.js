@@ -12,8 +12,10 @@ const getters = {
 };
  
 const actions = {
-    async fetchBookings({commit}){
-        const response = await axios.get(`${help().linkvetture}`);
+    async fetchBookings({commit}, payload){
+        //console.log(`${help().linkbookings}`+'/'+payload.campo+'/'+payload.giorno)
+        const response = await axios.get(`${help().linkbookings}`+'/'+payload.campo+'/'+payload.giorno);
+        //console.log('res'+response.data);
         commit('fetchBookings', response.data);
     },
 };
