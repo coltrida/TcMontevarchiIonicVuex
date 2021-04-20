@@ -48,14 +48,21 @@ const actions = {
     },
 
     async ricaricaSocio({commit}, payload){
-        //console.log(payload.user.name);
         const response = await axios.post(`${help().linkricaricasocio}`, {
             'importo':payload.importo,
             'selezionati':payload.selezionati,
             'user':payload.user.name
         });
-        //console.log(response.data)
         commit('ricaricaSocio', response.data);
+    },
+
+    async stornaSocio({commit}, payload){
+        const response = await axios.post(`${help().linkstornasocio}`, {
+            'importo':payload.importo,
+            'selezionati':payload.selezionati,
+            'user':payload.user.name
+        });
+        commit('stornaSocio', response.data);
     },
 };
 
@@ -91,6 +98,12 @@ const mutations = {
             state.soci.find(u => u.id == element.utente).credito = element.credito  
        });
     },
+
+    stornaSocio(state, payload){
+        payload.forEach(element => {
+             state.soci.find(u => u.id == element.utente).credito = element.credito  
+        });
+     },
 };
  
 export default{

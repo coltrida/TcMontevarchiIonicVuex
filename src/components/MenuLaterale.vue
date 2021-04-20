@@ -26,7 +26,7 @@
             </ion-item>
             <ion-item>
               <ion-icon :icon="trash"></ion-icon>
-              <ion-label>Storna Socio</ion-label>
+              <ion-label routerLink="/admin/stornasocio" @click="chiudi()">Storna Socio</ion-label>
             </ion-item>
             <ion-item>
               <ion-icon name="archive" ></ion-icon>

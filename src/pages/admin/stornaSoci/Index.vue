@@ -1,5 +1,5 @@
 <template>
-    <master-layout pageTitle="Ricarica Soci">
+    <master-layout pageTitle="Storna Soci">
   <ion-app>
     <ion-header translucent>
       <ion-toolbar>
@@ -35,7 +35,7 @@
                         </ion-select>
                     </ion-col>
                     <ion-col>
-                        <ion-button @click="ricarica()" color='white'>Ricarica</ion-button>
+                        <ion-button @click="storna()" color='white'>Storna</ion-button>
                     </ion-col>
                     </ion-row>
                 </ion-toolbar>
@@ -74,7 +74,7 @@ export default {
             fetchSoci:'fetchSoci',
             fetchImporti:'fetchImporti',
             filtraSoci:'filtraSoci',
-            ricaricaSocio:'ricaricaSocio'
+            stornaSocio:'stornaSocio'
         }),
 
         filtra(){
@@ -85,9 +85,9 @@ export default {
             this.filtraSoci(this.ricerca = '')
         },
 
-        ricarica(){
+        storna(){
             this.valori.user = this.getUser;
-            this.ricaricaSocio(this.valori);
+            this.stornaSocio(this.valori);
             this.valori = {
                 user:'',
                 importo: 0,

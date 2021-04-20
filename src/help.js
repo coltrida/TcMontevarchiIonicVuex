@@ -12,6 +12,7 @@ const help = () => {
         linksoci: 'http://tcmontevarchi.local/api/listaSoci',
         linkimporti: 'http://tcmontevarchi.local/api/listaImporti',
         linkricaricasocio: 'http://tcmontevarchi.local/api/ricaricaSocio',
+        linkstornasocio: 'http://tcmontevarchi.local/api/stornaSocio',
 
 /* 
         linklogin: 'https://www.tcmontevarchi-prenotazioni.it/api/login',
@@ -25,6 +26,7 @@ const help = () => {
         linksoci: 'https://www.tcmontevarchi-prenotazioni.it/api/listaSoci',
         linkimporti: 'https://www.tcmontevarchi-prenotazioni.it/api/listaImporti',
         linkricaricasocio: 'https://www.tcmontevarchi-prenotazioni.it/api/ricaricaSocio',
+        linkstornasocio: 'https://www.tcmontevarchi-prenotazioni.it/api/stornaSocio',
   */
     };
 };
