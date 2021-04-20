@@ -1,11 +1,16 @@
 <template>
+    
     <ion-page>
-        <ion-header>
+        <menu-laterale v-if="getLogged"></menu-laterale>
+        <ion-header >
             <ion-toolbar color="success">
+                <div class="ion-page" id="main-content"></div>
                 <ion-grid>
                     <ion-row>
-                        <ion-col class="ion-align-self-center">
-                            <ion-title>{{ pageTitle }}</ion-title>
+                        <ion-col v-if="getLogged" class="ion-align-self-center">
+                            <ion-buttons >
+                                <ion-menu-button></ion-menu-button>
+                            </ion-buttons>
                         </ion-col>
                         <ion-col>
                             <ion-button expand="full" routerLink="/" color="light">Home</ion-button>
@@ -14,16 +19,17 @@
                     <ion-row v-if="getLogged" class="ion-align-self-center">
                         <ion-col class="ion-align-self-center">
                             <ion-chip outline>
-                                <ion-title color="dark">Cert: {{getUser.scadenzaCertificato}}</ion-title>
+                                <ion-title color="dark">Cer: {{getUser.scadenzaCertificato}}</ion-title>
                             </ion-chip>
                         </ion-col>
                         <ion-col class="ion-align-self-center">
                             <ion-chip outline>
-                                <ion-title color="dark">€ {{getUser.credito}}</ion-title>
+                                <ion-title color="dark">€{{getUser.credito}}</ion-title>
                             </ion-chip>
                         </ion-col>
                     </ion-row>
                 </ion-grid>
+                
             </ion-toolbar>
         </ion-header>
 
@@ -38,6 +44,7 @@
 </template>
 
 <script>
+import MenuLaterale from './MenuLaterale.vue';
 import { mapGetters } from 'vuex';
 import {
     IonGrid,
@@ -50,7 +57,9 @@ import {
     IonToolbar,
     IonTitle,
     IonFooter,
-    IonChip
+    IonMenuButton,
+    IonChip,
+    IonButtons
 } from '@ionic/vue';
 export default {
     components: {
@@ -64,7 +73,10 @@ export default {
         IonToolbar,
         IonTitle,
         IonFooter,
-        IonChip
+        IonChip,
+        IonMenuButton,
+        MenuLaterale,
+        IonButtons
     },
     props: ["pageTitle"],
 

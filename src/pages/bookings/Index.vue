@@ -53,7 +53,8 @@ export default {
 
     computed:{
         ...mapGetters('bookings', {
-            getBookings:'getBookings'
+            getBookings:'getBookings',
+            getMessage:'getMessage'
         }),
 
         campo(){
@@ -63,6 +64,10 @@ export default {
         giorno(){
             return this.$route.params.giorno
         },
+
+        messaggio(){
+            return this.getMessage
+        }
     },
 
     methods:{
@@ -88,6 +93,9 @@ export default {
                 giorno = new Date(newdata.setDate(today.getDate() - 1));
             }
             mese = giorno.getMonth() + 1;
+            if (mese < 10){
+                mese = '0'+mese;
+            }
             anno = giorno.getFullYear();
             gio = giorno.getDate();
             giorno = anno + '-' + mese + '-' + gio;
@@ -107,6 +115,11 @@ export default {
 
         giorno(){
             this.fetchBookings({'campo' : this.campo, 'giorno': this.giorno} );
+        },
+
+        messaggio(){
+            this.fetchBookings({'campo' : this.campo, 'giorno': this.giorno} );
+
         },
     }
 }
