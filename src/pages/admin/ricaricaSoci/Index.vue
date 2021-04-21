@@ -46,7 +46,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import { IonList, IonToolbar, IonHeader, IonContent, IonApp, IonTitle, IonSearchbar, IonButton, IonCol, IonSelect, IonSelectOption,  } from '@ionic/vue';
+import { IonList, IonToolbar, IonHeader, IonContent, IonApp, IonTitle, IonSearchbar, IonButton, IonCol, IonSelect, IonSelectOption, IonItem, IonRow  } from '@ionic/vue';
 export default {
     data(){
         return{
@@ -59,7 +59,7 @@ export default {
         }
     },
 
-    components: { IonList, IonToolbar, IonHeader, IonContent, IonApp, IonTitle, IonSearchbar, IonButton, IonCol, IonSelect, IonSelectOption,  },
+    components: { IonList, IonToolbar, IonHeader, IonContent, IonApp, IonTitle, IonSearchbar, IonButton, IonCol, IonSelect, IonSelectOption, IonItem, IonRow  },
 
     computed:{
         ...mapGetters('users', {

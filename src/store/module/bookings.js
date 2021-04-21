@@ -4,6 +4,8 @@ import help from '../../help';
 const state = () => ({
     bookings: {},
     fields: {},
+    eliminabili:{},
+    disponibile:true,
     messaggio: ''
 });
  
@@ -18,6 +20,14 @@ const getters = {
 
     getFields(state){
         return state.fields;
+    },
+
+    getEliminabili(state){
+        return state.eliminabili;
+    },
+
+    getDisponibile(state){
+        return state.disponibile;
     },
 };
  
@@ -75,6 +85,21 @@ const actions = {
         const response = await axios.get(`${help().linkdisabilitacampo}`+'/'+payload.id+'/'+payload.user);
         commit('disabilitaCampo', response.data);
     },
+
+    async fetchEliminabili({commit}, id){
+        const response = await axios.get(`${help().linkprenotazionieliminabili}`+'/'+id);
+        commit('fetchEliminabili', response.data);
+    },
+
+    async eliminaOra({commit}, payload){
+        const response = await axios.get(`${help().linkeliminaora}`+'/'+payload.id+'/'+payload.id_user);
+        commit('eliminaOra', response.data);
+    },
+
+    async fetchDisponibile({commit}, payload){
+        const response = await axios.get(`${help().linkdisponibile}`+'/'+payload.giorno+'/'+payload.campo+'/'+payload.user);
+        commit('fetchDisponibile', response.data);
+    },
 };
  
 const mutations = {
@@ -105,6 +130,18 @@ const mutations = {
         } else {
             selezionato.disponibile = 0
         }
+    },
+
+    fetchEliminabili(state, payload){
+        state.eliminabili = payload;
+    },
+
+    eliminaOra(state, payload){
+        state.eliminabili = state.eliminabili.filter(u => u.id !== payload);
+    },
+
+    fetchDisponibile(state, payload){
+        state.disponibile = payload;
     },
 };
  

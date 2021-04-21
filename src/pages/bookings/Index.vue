@@ -8,11 +8,11 @@
                 <ion-col size="9" class="ion-align-self-center">
                     <ion-grid>
                         <ion-row>
-                            <ion-col><ion-button size='small' @click="link2('indietro')">
+                            <ion-col><ion-button style="height:50px; width:50px; font-size:8px" size='small' @click="link2('indietro')">
                                 <ion-icon :icon="arrowBack"></ion-icon>
                                 </ion-button></ion-col>
                             <ion-col size="6"><ion-chip>{{ giorno }}</ion-chip></ion-col>
-                            <ion-col><ion-button size='small' @click="link2('avanti')">
+                            <ion-col><ion-button style="height:50px; width:50px; font-size:8px" size='small' @click="link2('avanti')">
                                 <ion-icon :icon="arrowForward"></ion-icon>
                                 </ion-button></ion-col>
                         </ion-row>
@@ -29,7 +29,7 @@
             </ion-row>
 
     <div v-if="getBookings">
-        <tabellone v-for="i in 14" :key="i" :orario='i+8' :bookings='getBookings' />
+        <tabellone v-for="i in 14" :key="i" :orario='i+8' :bookings='getBookings' :disp='getDisponibile' />
     </div>
 
         </ion-grid>
@@ -54,7 +54,12 @@ export default {
     computed:{
         ...mapGetters('bookings', {
             getBookings:'getBookings',
+            getDisponibile:'getDisponibile',
             getMessage:'getMessage'
+        }),
+
+        ...mapGetters('users', {
+            getUser:'getUser',
         }),
 
         campo(){
@@ -73,6 +78,7 @@ export default {
     methods:{
         ...mapActions('bookings', {
             fetchBookings:'fetchBookings',
+            fetchDisponibile:'fetchDisponibile'
         }),
         
         link(campo){
@@ -106,20 +112,23 @@ export default {
 
     mounted(){
         this.fetchBookings({'campo' : this.campo, 'giorno': this.giorno} );
+        this.fetchDisponibile({'campo' : this.campo, 'giorno': this.giorno, 'user': this.getUser.id} );
     },
 
     watch:{
         campo(){
             this.fetchBookings({'campo' : this.campo, 'giorno': this.giorno} );
+            this.fetchDisponibile({'campo' : this.campo, 'giorno': this.giorno, 'user': this.getUser.id} );
         },
 
         giorno(){
             this.fetchBookings({'campo' : this.campo, 'giorno': this.giorno} );
+            this.fetchDisponibile({'campo' : this.campo, 'giorno': this.giorno, 'user': this.getUser.id} );
         },
 
         messaggio(){
             this.fetchBookings({'campo' : this.campo, 'giorno': this.giorno} );
-
+            this.fetchDisponibile({'campo' : this.campo, 'giorno': this.giorno, 'user': this.getUser.id} );
         },
     }
 }

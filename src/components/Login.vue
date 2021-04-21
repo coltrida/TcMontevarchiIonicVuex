@@ -26,7 +26,7 @@ export default {
         return {
             imageElement : {},
             user: {
-                username: 'cacao',
+                username: 'guga',
                 password: '123456'
             }
         }

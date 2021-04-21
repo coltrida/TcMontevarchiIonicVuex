@@ -40,7 +40,7 @@ import { IonCard, IonCardHeader, IonCardTitle, IonButton, IonChip, IonLabel, mod
 export default {
     components: { IonCard, IonCardHeader, IonCardTitle, IonButton, IonChip, IonLabel },
 
-    props:['orario', 'bookings'],
+    props:['orario', 'bookings', 'disp'],
 
     mounted(){
         //console.log(this.bookings);
@@ -57,7 +57,8 @@ export default {
 
     methods: {
       async openModal() {
-        const modal = await modalController
+        if(this.disp){
+          const modal = await modalController
           .create({
             component: PrenotazioneModal,
             cssClass: 'my-custom-class',
@@ -69,6 +70,7 @@ export default {
             },
           })
         return modal.present();
+        }
       }
     },
 

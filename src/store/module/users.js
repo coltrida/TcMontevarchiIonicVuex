@@ -3,9 +3,12 @@ import help from '../../help';
 
 const state = () => ({
     logged: false,
+    logs:{},
     user: {},
     soci: {},
     originalSoci: {},
+    tipi:{},
+    messaggio:'',
     importi: []
 });
  
@@ -24,6 +27,18 @@ const getters = {
 
     getImporti(state){
         return state.importi;
+    },
+
+    getTipi(state){
+        return state.tipi;
+    },
+
+    getMessaggio(state){
+        return state.messaggio;
+    },
+
+    getLogs(state){
+        return state.logs;
     },
 };
  
@@ -64,6 +79,38 @@ const actions = {
         });
         commit('stornaSocio', response.data);
     },
+
+    async fetchTipi({commit}){
+        const response = await axios.get(`${help().linktipi}`);
+        commit('fetchTipi', response.data);
+    },
+
+    async inserisciSocio({commit}, payload){
+        const response = await axios.post(`${help().linkinserisciSocio}`, {
+            'nome':payload.nome,
+            'cognome':payload.cognome,
+            'anno':payload.anno,
+            'user':payload.user.name,
+            'tipo':payload.tipo,
+            'certificato':payload.scadenza,
+            'privilegi':payload.privilegi,
+        });
+        commit('inserisciSocio', response.data);
+    },
+
+    async aggiornaCertificato({commit}, payload){
+        const response = await axios.post(`${help().linkaggiornaCertificato}`, {
+            'id':payload.id,
+            'certificato':payload.giorno,
+        });
+        commit('aggiornaCertificato', response.data);
+    },
+
+    async fetchLogs({commit}){
+        const response = await axios.get(`${help().linklog}`);
+        commit('fetchLogs', response.data);
+    },
+
 };
 
 const mutations = {
@@ -81,7 +128,6 @@ const mutations = {
     },
 
     filtraSoci(state, payload){
-        //console.log(payload);
         if (payload.length < 2){
             state.soci = state.originalSoci;
         } else {
@@ -104,6 +150,22 @@ const mutations = {
              state.soci.find(u => u.id == element.utente).credito = element.credito  
         });
      },
+
+     fetchTipi(state, payload){
+        state.tipi = payload;
+    },
+
+    inserisciSocio(state, payload){
+        state.messaggio = payload;
+    },
+
+    aggiornaCertificato(state, payload){
+        state.messaggio = payload;
+    },
+
+    fetchLogs(state, payload){
+        state.logs = payload;
+    },
 };
  
 export default{

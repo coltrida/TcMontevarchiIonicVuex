@@ -9,49 +9,49 @@
         <ion-list>
           <div v-if="getUser.tipo == 'admin'">
             <ion-item>
-              <ion-icon name="mail" ></ion-icon>
-              <ion-label routerLink="/admin/prenotazioneparticolare" @click="chiudi()">Prenotazioni Particolari</ion-label>
+              <ion-icon :icon="albums" ></ion-icon>
+              <ion-label style="margin-left:10px" routerLink="/admin/prenotazioneparticolare" @click="chiudi()">Prenotazioni Particolari</ion-label>
             </ion-item>
             <ion-item>
-              <ion-icon name="paper-plane" ></ion-icon>
-              <ion-label routerLink="/admin/eliminazioneparticolare" @click="chiudi()">Eliminazioni Particolari</ion-label>
+              <ion-icon :icon="closeCircle" ></ion-icon>
+              <ion-label style="margin-left:10px" routerLink="/admin/eliminazioneparticolare" @click="chiudi()">Eliminazioni Particolari</ion-label>
             </ion-item>
             <ion-item>
-              <ion-icon name="heart" ></ion-icon>
-              <ion-label routerLink="/admin/disabilitacampo" @click="chiudi()">Disabilita Campo</ion-label>
+              <ion-icon :icon="rainy" ></ion-icon>
+              <ion-label style="margin-left:10px" routerLink="/admin/disabilitacampo" @click="chiudi()">Disabilita Campo</ion-label>
             </ion-item>
             <ion-item>
-              <ion-icon name="archive" ></ion-icon>
-              <ion-label routerLink="/admin/ricaricasocio" @click="chiudi()">Ricarica Socio</ion-label>
+              <ion-icon :icon="wallet" ></ion-icon>
+              <ion-label style="margin-left:10px" routerLink="/admin/ricaricasocio" @click="chiudi()">Ricarica Socio</ion-label>
             </ion-item>
             <ion-item>
-              <ion-icon :icon="trash"></ion-icon>
-              <ion-label routerLink="/admin/stornasocio" @click="chiudi()">Storna Socio</ion-label>
+              <ion-icon :icon="cash"></ion-icon>
+              <ion-label style="margin-left:10px" routerLink="/admin/stornasocio" @click="chiudi()">Storna Socio</ion-label>
             </ion-item>
             <ion-item>
-              <ion-icon name="archive" ></ion-icon>
-              <ion-label>Inserisci Socio</ion-label>
+              <ion-icon :icon="personAdd" ></ion-icon>
+              <ion-label style="margin-left:10px" routerLink="/admin/inseriscisocio" @click="chiudi()">Inserisci Socio</ion-label>
             </ion-item>
             <ion-item>
-              <ion-icon name="archive" ></ion-icon>
-              <ion-label>Certificati medici</ion-label>
+              <ion-icon :icon="reader" ></ion-icon>
+              <ion-label style="margin-left:10px" routerLink="/admin/certificati" @click="chiudi()">Certificati medici</ion-label>
             </ion-item>
             <ion-item>
-              <ion-icon name="archive" ></ion-icon>
-              <ion-label>Log</ion-label>
+              <ion-icon :icon="server" ></ion-icon>
+              <ion-label style="margin-left:10px" routerLink="/admin/log" @click="chiudi()">Log</ion-label>
             </ion-item>
           </div>
           <div v-else>
               <ion-item>
                 <ion-icon :icon="trash"></ion-icon>
-                <ion-label>Elimina Ora</ion-label>
+                <ion-label style="margin-left:10px" routerLink="/bookings/eliminaOra" @click="chiudi()">Elimina Ora</ion-label>
             </ion-item>
           </div>
          
-          <ion-item>
+          <!-- <ion-item>
             <ion-icon name="accessibility-outline"></ion-icon>
             <ion-label>Logout</ion-label>
-          </ion-item>
+          </ion-item> -->
         </ion-list>
       </ion-content>
     </ion-menu>
@@ -59,7 +59,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { trash } from 'ionicons/icons'
+import { albums, closeCircle, rainy, wallet, personAdd, server, cash, reader, trash } from 'ionicons/icons'
 import { 
   IonContent, 
   IonHeader, 
@@ -75,7 +75,7 @@ import {
 export default {
   data(){
         return {
-            trash
+            albums, closeCircle, rainy, wallet, personAdd, server, cash, reader, trash
         }
     },
 

@@ -13,9 +13,16 @@ const help = () => {
         linkimporti: 'http://tcmontevarchi.local/api/listaImporti',
         linkricaricasocio: 'http://tcmontevarchi.local/api/ricaricaSocio',
         linkstornasocio: 'http://tcmontevarchi.local/api/stornaSocio',
+        linktipi: 'http://tcmontevarchi.local/api/tipologia',
+        linkinserisciSocio: 'http://tcmontevarchi.local/api/inserisciSocio',
+        linkaggiornaCertificato: 'http://tcmontevarchi.local/api/aggiornaCertificato',
+        linklog: 'http://tcmontevarchi.local/api/log',
+        linkprenotazionieliminabili: 'http://tcmontevarchi.local/api/listaPrenotazioniEliminabili',
+        linkeliminaora: 'http://tcmontevarchi.local/api/eliminaPrenotazione',
+        linkdisponibile: 'http://tcmontevarchi.local/api/disponibile',
 
-/* 
-        linklogin: 'https://www.tcmontevarchi-prenotazioni.it/api/login',
+
+/*         linklogin: 'https://www.tcmontevarchi-prenotazioni.it/api/login',
         linkbookings: 'https://www.tcmontevarchi-prenotazioni.it/api/prenotazioni',
         linkprenota: 'https://www.tcmontevarchi-prenotazioni.it/api/effettuaprenotazione',
         linkgetuser: 'https://www.tcmontevarchi-prenotazioni.it/api/getuser',
@@ -27,6 +34,13 @@ const help = () => {
         linkimporti: 'https://www.tcmontevarchi-prenotazioni.it/api/listaImporti',
         linkricaricasocio: 'https://www.tcmontevarchi-prenotazioni.it/api/ricaricaSocio',
         linkstornasocio: 'https://www.tcmontevarchi-prenotazioni.it/api/stornaSocio',
+        linktipi: 'https://www.tcmontevarchi-prenotazioni.it/api/tipologia',
+        linkinserisciSocio: 'https://www.tcmontevarchi-prenotazioni.it/api/inserisciSocio',
+        linkaggiornaCertificato: 'https://www.tcmontevarchi-prenotazioni.it/api/aggiornaCertificato',
+        linklog: 'https://www.tcmontevarchi-prenotazioni.it/api/log',
+        linkprenotazionieliminabili: 'https://www.tcmontevarchi-prenotazioni.it/api/listaPrenotazioniEliminabili',
+        linkeliminaora: 'https://www.tcmontevarchi-prenotazioni.it/api/eliminaPrenotazione',
+        linkdisponibile: 'https://www.tcmontevarchi-prenotazioni.it/api/disponibile',
   */
     };
 };
